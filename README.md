@@ -11,6 +11,7 @@ The Fictional Stores Dashboard is a Power BI report designed to help business us
 The dashboard was built using the following tools and technologies:
 
 - **Power BI Desktop** – Main data visualization platform used for report creation.
+- **Power BI Service** - Connected the dataflow from BI service workspace and published it to web(public).
 - **Power Query** – Data transformation and cleaning layer for reshaping and preparing the source tables.
 - **DAX (Data Analysis Expressions)** – Powers 27 measures, including time-intelligence calculations (YoY and MoM comparisons via `DATEADD`), customer retention/cohort logic, and dynamic titles.
 - **Field Parameters** – A `Metric Selection` parameter lets users toggle visuals between Revenue and Profit without duplicating charts.
@@ -18,7 +19,7 @@ The dashboard was built using the following tools and technologies:
 
 ## 4. Data Source
 
-The data is clean dataset picked up from Maven analytics. 
+The data is clean dataset picked up from Maven analytics. Imported the data files to OneDrive folder and created a dataflow in Power BI Service using the files and used that dataflow to create the dashboard in Power BI desktop.  
 
 ## 5. Features / Highlights
 
@@ -30,6 +31,7 @@ To deliver an interactive tool that:
 - Lets users switch seamlessly between Revenue and Profit as the primary metric across visuals.
 - Surfaces trends, YoY/MoM growth, and anomalies without manual pivoting.
 - Tracks customer retention and return rates alongside sales performance.
+- Uncovers trends sales/products revenue trends of stores and products across regions and countries.
 
 **Walkthrough of Key Visuals**
 - **Metric Toggle (Field Parameter)** — A single control (`Metric Selection`) swaps the underlying measure (Revenue vs. Profit) across trend charts and titles, which update dynamically to reflect the active selection.

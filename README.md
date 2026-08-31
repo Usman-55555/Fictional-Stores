@@ -4,7 +4,7 @@ An interactive Power BI report built to analyze retail performance across a mult
 
 ## 2. Short Description / Purpose
 
-The Fictional Stores Dashboard is a Power BI report designed to help business users explore sales and profitability across **24 stores in the USA, Canada, and Mexico** from **1997–1998**. It combines transaction, returns, product, and customer data into a single star-schema model, letting stakeholders pivot between Revenue and Profit views on demand and track performance trends, customer retention, and return rates over time. Its intended users are mid level execs, regional managers, stores managers etc. 
+The Fictional Stores Dashboard is a Power BI report designed to help business users explore sales and profitability across **24 stores in the USA, Canada, and Mexico** from **1997–1998**. It combines transaction, returns, product, and customer data into a single star-schema model, letting stakeholders pivot between Revenue and Profit views on demand and track performance trends, customer retention, and return rates over time. Its intended users are mid level execs, regional managers, stores managers who seek to understand trends and characteristics of stores and products globally. 
 
 ## 3. Tech Stack
 

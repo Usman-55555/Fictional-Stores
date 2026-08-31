@@ -1,52 +1,48 @@
-# Fictional Stores — Retail Analytics Power BI Project
+# 🏬 Fictional Stores: Retail Sales & Customer Analytics Dashboard
 
-A multi-page Power BI dashboard analyzing revenue, profit, store performance, and customer behavior for a fictional multi-country grocery/retail chain operating in the USA, Canada, and Mexico.
+An interactive Power BI report built to analyze retail performance across a multi-country grocery chain — covering revenue, profit, returns, and customer retention, with dynamic metric switching and year-over-year trending.
 
-## Overview
+## 2. Short Description / Purpose
 
-Built on a star-schema dataset covering transactions from **1997–1998**, across **24 stores**, **~1,559 products**, and **~9,600 customers**, this project demonstrates end-to-end BI development: data modeling, DAX measure design, dynamic report interactivity, and business insight generation.
+The Fictional Stores Dashboard is a Power BI report designed to help business users explore sales and profitability across **24 stores in the USA, Canada, and Mexico** from **1997–1998**. It combines transaction, returns, product, and customer data into a single star-schema model, letting stakeholders pivot between Revenue and Profit views on demand and track performance trends, customer retention, and return rates over time. Its intended users are mid level execs, regional managers, stores managers etc. 
 
-## Report Pages
+## 3. Tech Stack
 
-- **Executive Dashboard** — high-level KPIs with a field-parameter-driven Top 5 Products chart (toggle between Revenue and Profit), and a geographic breakdown by country.
-- **Store Performance** — store-type and regional performance, including a KPI visual with a trend-axis area chart.
-- **Product Details** — matrix breakdown of Revenue, Profit, and YOY growth by product, filterable by country and year.
+The dashboard was built using the following tools and technologies:
 
-## Data Model
+- **Power BI Desktop** – Main data visualization platform used for report creation.
+- **Power Query** – Data transformation and cleaning layer for reshaping and preparing the source tables.
+- **DAX (Data Analysis Expressions)** – Powers 27 measures, including time-intelligence calculations (YoY and MoM comparisons via `DATEADD`), customer retention/cohort logic, and dynamic titles.
+- **Field Parameters** – A `Metric Selection` parameter lets users toggle visuals between Revenue and Profit without duplicating charts.
+- **Data Modeling** – A star schema with one fact table (Transactions Data) and a returns fact table, related to five lookup/dimension tables (Customers, Products, Stores, Regions, Calendar) via nine relationships.
 
-Star schema with:
-- **Fact tables:** `Transactions Data`, `Returns_Data`
-- **Dimension tables:** `Calendar_Lookup`, `Customers_Lookup`, `Products_Lookup`, `Stores_Lookup`, `Regions_Lookup`
-- **Field parameter:** `Metric Selection` (Total revenue / Profit)
+## 4. Data Source
 
-Full schema, relationships, and calculated-column documentation: see [`Fictional_Stores_Project_Documentation.docx`](./Fictional_Stores_Project_Documentation.docx).
+The data is clean dataset picked up from Maven analytics. 
 
-## Key DAX Techniques
+## 5. Features / Highlights
 
-- Year-over-year and month-over-month time intelligence using `DATEADD`
-- Cohort-based customer retention (`INTERSECT` of current vs. prior-year customer sets)
-- Field-parameter-driven dynamic Top N filtering
-- A `HASONEVALUE`-guarded time-intelligence pattern to prevent misleading YOY results under multi-period filter selections
+**Business Problem**
+Retail leadership needs a fast way to answer questions like: Which products and stores drive the most profit? How is revenue trending year-over-year? Are customers being retained, and where are returns eating into margin? Raw transactional data makes these questions slow to answer.
 
-## Key Insights
+**Goal of the Dashboard**
+To deliver an interactive tool that:
+- Lets users switch seamlessly between Revenue and Profit as the primary metric across visuals.
+- Surfaces trends, YoY/MoM growth, and anomalies without manual pivoting.
+- Tracks customer retention and return rates alongside sales performance.
 
-| Question | Finding |
-|---|---|
-| Overall YOY revenue growth (1997→1998) | **+112.18%** — driven mostly by Canada/Mexico market launches |
-| USA-only YOY revenue growth | **+8.40%** — the more accurate organic-growth figure |
-| Customer retention (1997→1998) | **85.99%** of 1997 customers returned in 1998 |
-| Weekend share of transactions | **28.40%** of all transactions |
-| Declining products despite overall growth | Several SKUs (e.g. National Egg Substitute) fell **34–37%** YOY in the USA |
+**Walkthrough of Key Visuals**
+- **Metric Toggle (Field Parameter)** — A single control (`Metric Selection`) swaps the underlying measure (Revenue vs. Profit) across trend charts and titles, which update dynamically to reflect the active selection.
+- **Exec Summary Page** — Includes a trending chart with a conditionally-formatted, dynamic title, plus a Top 5 Products visual that re-ranks based on the selected metric.
+- **Customers Page** — Includes a donut chart (also metric-aware via dynamic title) alongside customer-focused KPIs: Total Customers, Retained Customers, and Customer Retention %.
+- **YoY & MoM Trend Measures** — Previous Year/Previous Month comparisons for Revenue and Profit, plus growth-percentage measures, support trend and variance analysis.
+- **Returns Analysis** — Quantity Returned, Return Rate, and Previous Month Returns quantify how returns affect net performance.
+- **Weekday/Weekend Split** — Transaction counts broken out by weekend vs. weekday to reveal shopping-pattern differences.
 
-## Tech Stack
+**Business Impact & Insights**
+- **Performance Monitoring:** Leadership can track Revenue and Profit trends month-over-month and year-over-year from one view.
+- **Product Strategy:** The metric-aware Top 5 Products visual highlights which products to prioritize under either a revenue or profitability lens.
+- **Customer Loyalty:** Retention measures identify how much of the customer base is being kept year-over-year, informing loyalty and marketing investment.
+- **Margin Protection:** Return Rate and returns-related measures flag where returned inventory is eroding profit.
 
-`Power BI Desktop` · `DAX` · `Power Query (M)` · `Star schema modeling`
 
-## Files
-
-- `Fictional_Stores_Project_Documentation.docx` — full project documentation (data model, Power Query notes, DAX reference, insights, recommendations, resume/interview writeup)
-- `Fictional Stores.pbix` — the Power BI report file
-
-## Notes
-
-This is a portfolio/practice project built on a fictional dataset — figures and business context are illustrative, not real company data.
